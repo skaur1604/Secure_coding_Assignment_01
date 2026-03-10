@@ -3,14 +3,17 @@ name: AppScan CodeSweep
 on:
   push:
     branches: [ main ]
+  pull_request:
 
 jobs:
   codesweep:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Code
         uses: actions/checkout@v3
 
       - name: Run AppScan CodeSweep
         uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
