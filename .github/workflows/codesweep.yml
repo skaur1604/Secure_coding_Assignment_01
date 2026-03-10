@@ -1,0 +1,16 @@
+name: AppScan CodeSweep
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  codesweep:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Run AppScan CodeSweep
+        uses: HCL-TECH-SOFTWARE/appscan-codesweep-action@v1
